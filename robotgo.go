@@ -1328,40 +1328,6 @@ ____    __    ____  __  .__   __.  _______   ______   ____    __    ____
 
 */
 
-// ShowAlert show a alert window
-func ShowAlert(title, msg string, args ...string) int {
-	var (
-		// title         string
-		// msg           string
-		defaultButton = "Ok"
-		cancelButton  = "Cancel"
-	)
-
-	if len(args) > 0 {
-		// title = args[0]
-		// msg = args[1]
-		defaultButton = args[0]
-	}
-
-	if len(args) > 1 {
-		cancelButton = args[1]
-	}
-
-	atitle := C.CString(title)
-	amsg := C.CString(msg)
-	adefaultButton := C.CString(defaultButton)
-	acancelButton := C.CString(cancelButton)
-
-	cbool := C.show_alert(atitle, amsg, adefaultButton, acancelButton)
-	ibool := int(cbool)
-
-	C.free(unsafe.Pointer(atitle))
-	C.free(unsafe.Pointer(amsg))
-	C.free(unsafe.Pointer(adefaultButton))
-	C.free(unsafe.Pointer(acancelButton))
-
-	return ibool
-}
 
 // IsValid valid the window
 func IsValid() bool {

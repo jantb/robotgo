@@ -8,16 +8,8 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-#include "alert_c.h"
 #include "window.h"
 #include "win_sys.h"
-
-int show_alert(const char *title, const char *msg,
-	const char *defaultButton, const char *cancelButton){
-		
-	int alert = showAlert(title, msg, defaultButton, cancelButton);
-	return alert;
-}
 
 intptr scale_x(){
 	return scaleX();
